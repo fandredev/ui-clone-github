@@ -1,3 +1,5 @@
+import { I_API_USER, I_API_REPO } from "../@types";
+
 export interface I_ProfileData<S, N, U> {
   username: S;
   name: S;
@@ -17,4 +19,9 @@ export interface I_RepoCard<S, N> {
   language?: S;
   stars: N;
   forks: N;
+}
+export interface I_Data {
+  user?: I_API_USER<string, number>;
+  repos?: I_API_REPO[];
+  error?: string;
 }

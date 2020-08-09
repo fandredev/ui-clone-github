@@ -16,22 +16,17 @@ import RepoCard from "../../components/RepoCard";
 import RandomCalendar from "../../components/RandomCalendar";
 
 import { useParams } from "react-router-dom";
-import { I_API_USER, I_API_REPO } from "../../@types";
-
-interface I_Data {
-  user?: I_API_USER<string, number>;
-  repos?: I_API_REPO[];
-  error?: string;
-}
+import { API_GITHUB, USER_DEFAULT } from "../../enums";
+import { I_Data } from "../../interfaces";
 
 const Profile: React.FC = () => {
-  const { username = "diego3g" } = useParams();
+  const { username = USER_DEFAULT.Name } = useParams();
   const [data, setData] = useState<I_Data>();
 
   useEffect(() => {
     Promise.all([
-      fetch(`https://api.github.com/users/${username}`),
-      fetch(`https://api.github.com/users/${username}/repos`),
+      fetch(`${API_GITHUB.Resources}${username}`),
+      fetch(`${API_GITHUB.Resources}${username}/repos`),
     ]).then(async (responses) => {
       const [userResponse, reposResponse] = responses;
 
