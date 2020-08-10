@@ -6,7 +6,7 @@ import { Container } from "./styles";
 
 import { HeatMapValue } from "../../types";
 
-const RandomCalendar: React.FC = () => {
+const RandomCalendar = () => {
   const startDate = subYears(new Date(), 1);
   const endDate = new Date();
   const generateHeatMapValues = (startDate: Date, endDate: Date) => {

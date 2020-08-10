@@ -2,7 +2,7 @@ import React from "react";
 
 import { Container, Line, GithubLogo } from "./styles";
 
-const Footer: React.FC = () => {
+const Footer = () => {
   return (
     <Container>
       <Line />

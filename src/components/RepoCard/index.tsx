@@ -21,8 +21,11 @@ const RepoCard: React.FC<I_RepoCard<string, number>> = ({
   forks,
   stars,
 }) => {
-  const languageClass = language ? language.toLowerCase() : "other";
-  const replaceRepo = reponame.replace(`https://github.com/${username}/`, "");
+  const languageClass: string = language ? language.toLowerCase() : "other";
+  const replaceRepo: string = reponame.replace(
+    `https://github.com/${username}/`,
+    ""
+  );
   return (
     <Container>
       <TopSide>
