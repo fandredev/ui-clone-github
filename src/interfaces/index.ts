@@ -21,7 +21,6 @@ export interface I_RepoCard<S, N> {
   forks: N;
 }
 export interface I_Data {
-  user?: I_API_USER<string, number>;
   repos?: I_API_REPO[];
   error?: string;
 }

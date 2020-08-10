@@ -17,66 +17,44 @@ import RandomCalendar from "../../components/RandomCalendar";
 
 import { useParams } from "react-router-dom";
 import { API_GITHUB, USER_DEFAULT, LOADING_PROPS } from "../../enums";
-import { I_Data } from "../../interfaces";
 
 import Loading from "../../components/Loading";
+import { I_Data } from "../../interfaces";
+
+import { useFetch } from "../../hooks/useFetch";
+
+import { I_API_USER } from "../../@types";
 
 const Profile: React.FC = () => {
   const { username = USER_DEFAULT.Name } = useParams();
   const [data, setData] = useState<I_Data>();
 
+  const { data: users } = useFetch<I_API_USER<string, number>>(`${username}`);
+
   useEffect(() => {
-    Promise.all([
-      fetch(`${API_GITHUB.Resources}${username}`),
-      fetch(`${API_GITHUB.Resources}${username}/repos`),
-    ]).then(async (responses) => {
-      const [userResponse, reposResponse] = responses;
+    Promise.all([fetch(`${API_GITHUB.Resources}${username}/repos`)]).then(
+      async (responses) => {
+        const [reposResponse] = responses;
+        const repos = await reposResponse.json();
 
-      if (userResponse.status === 404) {
-        setData({ error: " User not Found" });
-        return;
+        const randomRepos = repos.sort(() => 0.5 - Math.random());
+        const slicedRepos = randomRepos.slice(0, 6);
+
+        setData({
+          repos: slicedRepos,
+        });
       }
-      const user = await userResponse.json();
-      const repos = await reposResponse.json();
-
-      const randomRepos = repos.sort(() => 0.5 - Math.random());
-      const slicedRepos = randomRepos.slice(0, 6);
-
-      setData({
-        user,
-        repos: slicedRepos,
-      });
-    });
+    );
   }, [username]);
 
-  if (data?.error) {
-    return <h1>{data.error}</h1>;
-  }
-  if (!data?.user || !data?.repos) {
+  if (!users || !data?.repos)
     return <Loading type={LOADING_PROPS.Type} color={LOADING_PROPS.Color} />;
-  }
-
-  const {
-    user: {
-      public_repos,
-      avatar_url,
-      name,
-      followers,
-      following,
-      blog,
-      email,
-      company,
-      location,
-      login,
-    },
-    repos,
-  } = data;
 
   const TabContent = () => (
     <div className="content">
       <RepoIcon />
       <span className="label">Repositories</span>
-      <span className="number">{public_repos}</span>
+      <span className="number">{users?.public_repos}</span>
     </div>
   );
   return (
@@ -91,15 +69,15 @@ const Profile: React.FC = () => {
       <Main>
         <LeftSide>
           <ProfileData
-            username={login}
-            name={name}
-            avatarUrl={avatar_url}
-            follow={followers}
-            following={following}
-            company={company}
-            location={location}
-            email={email}
-            blog={blog}
+            username={users?.login}
+            name={users?.name}
+            avatarUrl={users?.avatar_url}
+            follow={users?.followers}
+            following={users?.following}
+            company={users?.company}
+            location={users?.location}
+            email={users?.email}
+            blog={users?.blog}
           />
         </LeftSide>
         <RightSide>
@@ -108,9 +86,9 @@ const Profile: React.FC = () => {
             <span className="line"></span>
           </Tab>
           <Repos>
-            <h2>Random Repos</h2>
+            <h2>Repos</h2>
             <div>
-              {repos.map(
+              {data?.repos.map(
                 ({
                   name,
                   owner: { login },

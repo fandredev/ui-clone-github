@@ -7,7 +7,7 @@ interface I_Props {
 }
 
 const Test: React.FC = () => {
-  const { data } = useFetch<I_Props>("https://api.github.com/users/flubyGit");
+  const { data } = useFetch<I_Props>("users/flubyGit");
   return <>My name Github: {data?.login}</>;
 };
 export default Test;

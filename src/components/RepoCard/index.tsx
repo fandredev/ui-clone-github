@@ -36,6 +36,7 @@ const RepoCard: React.FC<I_RepoCard<string, number>> = ({
         <ul>
           <li>
             <div className={`language ${languageClass}`} />
+            <span>{language}</span>
           </li>
           <li>
             <StarIcon />
