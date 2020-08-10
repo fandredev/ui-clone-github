@@ -11,13 +11,13 @@ export interface I_API_USER<S, N> {
   location?: S;
 }
 export interface I_API_REPO {
-  name: string;
+  name: any;
   owner: {
-    login: string;
+    login: any;
   };
-  stargazers_count: number;
-  forks: number;
-  html_url: string;
-  language?: string;
-  description?: string;
+  stargazers_count: any;
+  forks: any;
+  html_url: any;
+  language?: any;
+  description?: any;
 }

@@ -9,6 +9,7 @@ import Footer from "./components/Footer";
 
 import Profile from "./pages/Profile";
 import Repo from "./pages/Repo";
+import Test from "./pages/Test";
 
 import GlobalStyles from "./styles/GlobalStyles";
 import { ThemeName, themes } from "./styles/Themes";
@@ -26,6 +27,7 @@ function App() {
           <Route path="/" element={<Profile />} />
           <Route path="/:username" element={<Profile />} />
           <Route path="/:username/:reponame" element={<Repo />} />
+          <Route path="/test" element={<Test />} />
         </Routes>
 
         <GlobalStyles />
