@@ -4,3 +4,7 @@ export enum API_GITHUB {
 export enum USER_DEFAULT {
   Name = "diego3g",
 }
+export enum LOADING_PROPS {
+  Color = "#fff",
+  Type = "spinningBubbles",
+}

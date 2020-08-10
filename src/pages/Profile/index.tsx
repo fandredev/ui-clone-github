@@ -16,8 +16,10 @@ import RepoCard from "../../components/RepoCard";
 import RandomCalendar from "../../components/RandomCalendar";
 
 import { useParams } from "react-router-dom";
-import { API_GITHUB, USER_DEFAULT } from "../../enums";
+import { API_GITHUB, USER_DEFAULT, LOADING_PROPS } from "../../enums";
 import { I_Data } from "../../interfaces";
+
+import Loading from "../../components/Loading";
 
 const Profile: React.FC = () => {
   const { username = USER_DEFAULT.Name } = useParams();
@@ -51,7 +53,7 @@ const Profile: React.FC = () => {
     return <h1>{data.error}</h1>;
   }
   if (!data?.user || !data?.repos) {
-    return <h1>Loading...</h1>;
+    return <Loading type={LOADING_PROPS.Type} color={LOADING_PROPS.Color} />;
   }
 
   const {
