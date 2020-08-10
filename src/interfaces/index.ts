@@ -1,4 +1,5 @@
 import { I_API_USER, I_API_REPO } from "../@types";
+import { ThemeName } from "../styles/Themes";
 
 export interface I_ProfileData<S, N, U> {
   username: S;
@@ -24,4 +25,8 @@ export interface I_Data {
   user?: I_API_USER<string, number>;
   repos?: I_API_REPO[];
   error?: string;
+}
+export interface I_HeaderTheme<ThemeNow> {
+  themeName: ThemeNow;
+  setThemeName: (newName: ThemeNow) => void;
 }

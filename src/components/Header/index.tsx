@@ -3,7 +3,13 @@ import { Container, GithubLogo, SearchForm } from "./styles";
 
 import { useNavigate } from "react-router-dom";
 
-const Header: React.FC = () => {
+import { I_HeaderTheme } from "../../interfaces";
+import { ThemeName } from "../../styles/Themes";
+
+const Header: React.FC<I_HeaderTheme<ThemeName>> = ({
+  themeName,
+  setThemeName,
+}) => {
   const [search, setSearch] = useState("");
   const navigate = useNavigate();
 
@@ -12,10 +18,13 @@ const Header: React.FC = () => {
 
     navigate("/".concat(search.toLowerCase().trim()));
   }
+  function toggleTheme() {
+    setThemeName(themeName === "light" ? "dark" : "light");
+  }
 
   return (
     <Container>
-      <GithubLogo />
+      <GithubLogo onClick={toggleTheme} />
       <SearchForm onSubmit={handleSubmit}>
         <input
           value={search}
