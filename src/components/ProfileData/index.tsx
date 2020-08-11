@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { InterfaceProfileData } from '../../interfaces';
-
+import PropTypes from 'prop-types';
 import {
   Container,
   Flex,
@@ -24,6 +24,7 @@ const ProfileData: React.FC<InterfaceProfileData<string, number, undefined>> = (
   location,
   email,
   blog,
+  follow,
 }) => {
   return (
     <Container>
@@ -38,6 +39,7 @@ const ProfileData: React.FC<InterfaceProfileData<string, number, undefined>> = (
         <li>
           <PeopleIcon />
           <b>Followers</b>
+          {follow}
           <span>·</span>
         </li>
         <li>
@@ -73,5 +75,23 @@ const ProfileData: React.FC<InterfaceProfileData<string, number, undefined>> = (
       </Column>
     </Container>
   );
+};
+
+ProfileData.defaultProps = {
+  company: '',
+  location: 'São Paulo',
+  email: '',
+  blog: '',
+};
+ProfileData.propTypes = {
+  username: PropTypes.string.isRequired,
+  name: PropTypes.string.isRequired,
+  avatarUrl: PropTypes.string.isRequired,
+  following: PropTypes.number.isRequired,
+  follow: PropTypes.number.isRequired,
+  company: PropTypes.string,
+  location: PropTypes.string,
+  email: PropTypes.string,
+  blog: PropTypes.string,
 };
 export default ProfileData;

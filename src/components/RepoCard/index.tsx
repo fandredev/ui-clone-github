@@ -5,6 +5,7 @@ import { Container, TopSide, BotSide, RepoIcon, StarIcon, ForkIcon } from './sty
 import { InterfaceRepoCard } from '../../interfaces';
 
 import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
 const RepoCard: React.FC<InterfaceRepoCard<string, number>> = ({
   reponame,
@@ -43,5 +44,19 @@ const RepoCard: React.FC<InterfaceRepoCard<string, number>> = ({
       </BotSide>
     </Container>
   );
+};
+
+RepoCard.defaultProps = {
+  description: '',
+  language: 'Javascript',
+};
+
+RepoCard.propTypes = {
+  reponame: PropTypes.string.isRequired,
+  username: PropTypes.string.isRequired,
+  description: PropTypes.string,
+  language: PropTypes.string,
+  stars: PropTypes.number.isRequired,
+  forks: PropTypes.number.isRequired,
 };
 export default RepoCard;

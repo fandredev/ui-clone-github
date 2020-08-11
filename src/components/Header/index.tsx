@@ -5,6 +5,7 @@ import { useNavigate } from 'react-router-dom';
 
 import { HeaderTheme } from '../../interfaces';
 import { ThemeName } from '../../styles/Themes';
+import PropTypes from 'prop-types';
 
 const Header: React.FC<HeaderTheme<ThemeName>> = ({ themeName, setThemeName }) => {
   const [search, setSearch] = useState('');
@@ -31,6 +32,11 @@ const Header: React.FC<HeaderTheme<ThemeName>> = ({ themeName, setThemeName }) =
       </SearchForm>
     </Container>
   );
+};
+
+Header.propTypes = {
+  themeName: PropTypes.any.isRequired,
+  setThemeName: PropTypes.func.isRequired,
 };
 
 export default Header;
