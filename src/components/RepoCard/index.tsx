@@ -1,19 +1,12 @@
-import React from "react";
+import React from 'react';
 
-import {
-  Container,
-  TopSide,
-  BotSide,
-  RepoIcon,
-  StarIcon,
-  ForkIcon,
-} from "./styles";
+import { Container, TopSide, BotSide, RepoIcon, StarIcon, ForkIcon } from './styles';
 
-import { I_RepoCard } from "../../interfaces";
+import { InterfaceRepoCard } from '../../interfaces';
 
-import { Link } from "react-router-dom";
+import { Link } from 'react-router-dom';
 
-const RepoCard: React.FC<I_RepoCard<string, number>> = ({
+const RepoCard: React.FC<InterfaceRepoCard<string, number>> = ({
   reponame,
   username,
   description,
@@ -21,11 +14,8 @@ const RepoCard: React.FC<I_RepoCard<string, number>> = ({
   forks,
   stars,
 }) => {
-  const languageClass: string = language ? language.toLowerCase() : "other";
-  const replaceRepo: string = reponame.replace(
-    `https://github.com/${username}/`,
-    ""
-  );
+  const languageClass: string = language ? language.toLowerCase() : 'other';
+  const replaceRepo: string = reponame.replace(`https://github.com/${username}/`, '');
   return (
     <Container>
       <TopSide>

@@ -1,8 +1,8 @@
-import styled, { css } from "styled-components";
+import styled, { css } from 'styled-components';
 
-import { RiBookMarkLine, RiStarLine } from "react-icons/ri";
-import { AiOutlineFork } from "react-icons/ai";
-import { FaGithub } from "react-icons/fa";
+import { RiBookMarkLine, RiStarLine } from 'react-icons/ri';
+import { AiOutlineFork } from 'react-icons/ai';
+import { FaGithub } from 'react-icons/fa';
 
 const cssIcons = css`
   width: 16px;

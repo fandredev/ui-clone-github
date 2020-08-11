@@ -1,21 +1,21 @@
-import "react-calendar-heatmap/dist/styles.css";
+import 'react-calendar-heatmap/dist/styles.css';
 
-import React, { useState } from "react";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { ThemeProvider } from "styled-components";
+import React, { useState } from 'react';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { ThemeProvider } from 'styled-components';
 
-import Header from "./components/Header";
-import Footer from "./components/Footer";
+import Header from './components/Header';
+import Footer from './components/Footer';
 
-import Profile from "./pages/Profile";
-import Repo from "./pages/Repo";
-import Test from "./pages/Test";
+import Profile from './pages/Profile';
+import Repo from './pages/Repo';
+import Test from './pages/Test';
 
-import GlobalStyles from "./styles/GlobalStyles";
-import { ThemeName, themes } from "./styles/Themes";
+import GlobalStyles from './styles/GlobalStyles';
+import { ThemeName, themes } from './styles/Themes';
 
 function App() {
-  const [themeName, setThemeName] = useState<ThemeName>("dark");
+  const [themeName, setThemeName] = useState<ThemeName>('dark');
   const currentTheme = themes[themeName];
 
   return (

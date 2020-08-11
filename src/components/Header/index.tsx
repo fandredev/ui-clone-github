@@ -1,25 +1,22 @@
-import React, { useState, FormEvent } from "react";
-import { Container, GithubLogo, SearchForm } from "./styles";
+import React, { useState, FormEvent } from 'react';
+import { Container, GithubLogo, SearchForm } from './styles';
 
-import { useNavigate } from "react-router-dom";
+import { useNavigate } from 'react-router-dom';
 
-import { I_HeaderTheme } from "../../interfaces";
-import { ThemeName } from "../../styles/Themes";
+import { HeaderTheme } from '../../interfaces';
+import { ThemeName } from '../../styles/Themes';
 
-const Header: React.FC<I_HeaderTheme<ThemeName>> = ({
-  themeName,
-  setThemeName,
-}) => {
-  const [search, setSearch] = useState("");
+const Header: React.FC<HeaderTheme<ThemeName>> = ({ themeName, setThemeName }) => {
+  const [search, setSearch] = useState('');
   const navigate = useNavigate();
 
   function handleSubmit(e: FormEvent) {
     e.preventDefault();
 
-    navigate("/".concat(search.toLowerCase().trim()));
+    navigate('/'.concat(search.toLowerCase().trim()));
   }
   function toggleTheme() {
-    setThemeName(themeName === "light" ? "dark" : "light");
+    setThemeName(themeName === 'light' ? 'dark' : 'light');
   }
 
   return (

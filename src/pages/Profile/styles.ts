@@ -1,5 +1,5 @@
-import styled from "styled-components";
-import { RiBookMarkLine } from "react-icons/ri";
+import styled from 'styled-components';
+import { RiBookMarkLine } from 'react-icons/ri';
 
 export const Container = styled.div`
   --horizontalPadding: 16px;

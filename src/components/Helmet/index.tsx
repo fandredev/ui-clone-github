@@ -1,12 +1,8 @@
-import React from "react";
-import Helmet from "react-helmet";
+import React from 'react';
+import Helmet from 'react-helmet';
 
-import { I_HelmetProps } from "../../interfaces";
-const SEO: React.FC<I_HelmetProps<string, number>> = ({
-  name,
-  login,
-  public_repos,
-}) => {
+import { InterfaceHelmetProps } from '../../interfaces';
+const SEO: React.FC<InterfaceHelmetProps<string, number>> = ({ name, login, public_repos }) => {
   return (
     <Helmet>
       <title>

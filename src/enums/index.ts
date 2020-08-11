@@ -1,10 +1,10 @@
 export enum API_GITHUB {
-  Resources = "https://api.github.com/users/",
+  Resources = 'https://api.github.com/users/',
 }
 export enum USER_DEFAULT {
-  Name = "diego3g",
+  Name = 'diego3g',
 }
 export enum LOADING_PROPS {
-  Color = "#fff",
-  Type = "spinningBubbles",
+  Color = '#fff',
+  Type = 'spinningBubbles',
 }

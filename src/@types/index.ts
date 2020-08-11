@@ -1,4 +1,4 @@
-export interface I_API_USER<S, N> {
+export interface ApiUser<S, N> {
   login: S;
   name: S;
   followers: N;
@@ -10,7 +10,7 @@ export interface I_API_USER<S, N> {
   email?: S;
   location?: S;
 }
-export interface I_API_REPO {
+export interface ApiRepo {
   name: any;
   owner: {
     login: any;

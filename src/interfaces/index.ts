@@ -1,6 +1,6 @@
-import { I_API_REPO } from "../@types";
+import { ApiRepo } from '../@types';
 
-export interface I_ProfileData<S, N, U> {
+export interface InterfaceProfileData<S, N, U> {
   username: S;
   name: S;
   avatarUrl: S;
@@ -12,7 +12,7 @@ export interface I_ProfileData<S, N, U> {
   blog?: S | U;
 }
 
-export interface I_RepoCard<S, N> {
+export interface InterfaceRepoCard<S, N> {
   username: S;
   reponame: S;
   description?: S;
@@ -20,22 +20,27 @@ export interface I_RepoCard<S, N> {
   stars: N;
   forks: N;
 }
-export interface I_Data {
-  repos?: I_API_REPO[];
+export interface InterfaceData {
+  repos?: ApiRepo[];
   error?: string;
 }
-export interface I_HeaderTheme<ThemeNow> {
+export interface HeaderTheme<ThemeNow> {
   themeName: ThemeNow;
   setThemeName: (newName: ThemeNow) => void;
 }
-export interface I_LoadingProps<S, N> {
+export interface LoadingProps<S, N> {
   type?: S;
   color: S;
   height?: N;
   width?: N;
 }
-export interface I_HelmetProps<S, N> {
+export interface InterfaceHelmetProps<S, N> {
   login: S;
   name: S;
+  // eslint-disable-next-line camelcase
   public_repos: N;
+}
+export interface InterfacePropsTest<N, S> {
+  id: N;
+  login: S;
 }

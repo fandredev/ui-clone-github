@@ -1,10 +1,10 @@
-import React from "react";
-import HeatMap from "react-calendar-heatmap";
-import { subYears, isBefore, isSameDay, addDays } from "date-fns";
+import React from 'react';
+import HeatMap from 'react-calendar-heatmap';
+import { subYears, isBefore, isSameDay, addDays } from 'date-fns';
 
-import { Container } from "./styles";
+import { Container } from './styles';
 
-import { HeatMapValue } from "../../types";
+import { HeatMapValue } from '../../types';
 
 const RandomCalendar = () => {
   const startDate = subYears(new Date(), 1);

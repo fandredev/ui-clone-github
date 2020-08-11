@@ -1,6 +1,6 @@
-import React from "react";
+import React from 'react';
 
-import { I_ProfileData } from "../../interfaces";
+import { InterfaceProfileData } from '../../interfaces';
 
 import {
   Container,
@@ -13,9 +13,9 @@ import {
   LocationIcon,
   EmailIcon,
   BlogIcon,
-} from "./styles";
+} from './styles';
 
-const ProfileData: React.FC<I_ProfileData<string, number, undefined>> = ({
+const ProfileData: React.FC<InterfaceProfileData<string, number, undefined>> = ({
   username,
   name,
   avatarUrl,

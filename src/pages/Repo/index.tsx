@@ -1,26 +1,17 @@
-import React from "react";
-import { Link } from "react-router-dom";
-import {
-  Container,
-  Breadcrumb,
-  RepoIcon,
-  Stats,
-  StarIcon,
-  ForkIcon,
-  GitHubIcon,
-  LinkButton,
-} from "./styles";
+import React from 'react';
+import { Link } from 'react-router-dom';
+import { Container, Breadcrumb, RepoIcon, Stats, StarIcon, ForkIcon, GitHubIcon, LinkButton } from './styles';
 
 const Repo: React.FC = () => {
   return (
     <Container>
       <Breadcrumb>
         <RepoIcon />
-        <Link className={"username"} to={"/flubyGit"}>
+        <Link className={'username'} to={'/flubyGit'}>
           flubyGit
         </Link>
         <span>/</span>
-        <Link className={"repo-name"} to={"/flubyGit/typescript"}>
+        <Link className={'repo-name'} to={'/flubyGit/typescript'}>
           typescript
         </Link>
       </Breadcrumb>
@@ -39,7 +30,7 @@ const Repo: React.FC = () => {
           </li>
         </ul>
       </Stats>
-      <LinkButton href={"https://github.com/flubyGit/typescript"}>
+      <LinkButton href={'https://github.com/flubyGit/typescript'}>
         <GitHubIcon />
         <span>View on Github</span>
       </LinkButton>
