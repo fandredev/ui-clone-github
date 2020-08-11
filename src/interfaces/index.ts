@@ -1,4 +1,4 @@
-import { I_API_USER, I_API_REPO } from "../@types";
+import { I_API_REPO } from "../@types";
 
 export interface I_ProfileData<S, N, U> {
   username: S;
@@ -33,4 +33,9 @@ export interface I_LoadingProps<S, N> {
   color: S;
   height?: N;
   width?: N;
+}
+export interface I_HelmetProps<S, N> {
+  login: S;
+  name: S;
+  public_repos: N;
 }

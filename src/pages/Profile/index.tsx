@@ -14,11 +14,12 @@ import {
 import ProfileData from "../../components/ProfileData";
 import RepoCard from "../../components/RepoCard";
 import RandomCalendar from "../../components/RandomCalendar";
+import SEO from "../../components/Helmet";
+import Loading from "../../components/Loading";
 
 import { useParams } from "react-router-dom";
 import { API_GITHUB, USER_DEFAULT, LOADING_PROPS } from "../../enums";
 
-import Loading from "../../components/Loading";
 import { I_Data } from "../../interfaces";
 
 import { useFetch } from "../../hooks/useFetch";
@@ -30,6 +31,7 @@ const Profile: React.FC = () => {
   const [data, setData] = useState<I_Data>();
 
   const { data: users } = useFetch<I_API_USER<string, number>>(`${username}`);
+  console.log(users, "Usuários");
 
   useEffect(() => {
     Promise.all([fetch(`${API_GITHUB.Resources}${username}/repos`)]).then(
@@ -59,6 +61,11 @@ const Profile: React.FC = () => {
   );
   return (
     <Container>
+      <SEO
+        login={users?.login}
+        name={users?.name}
+        public_repos={users?.public_repos}
+      />
       <Tab className="desktop">
         <div className="wrapper">
           <span className="offset"></span>
